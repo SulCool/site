@@ -1,0 +1,71 @@
+.help-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.help-page h1 {
+  font-size: 32px;
+  color: #2e7d32;
+  text-align: center;
+}
+
+.help-page h2 {
+  font-size: 28px;
+  margin: 2rem 0 1rem;
+}
+
+.help-page p {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.help-page ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.help-page .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2e7d32;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.help-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: 20px 0;
+}
+
+.help-page input {
+  padding: 8px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
+.help-page button {
+  padding: 10px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.partners p {
+  font-size: 16px;
+  color: #2e7d32;
+}

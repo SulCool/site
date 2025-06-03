@@ -1,0 +1,47 @@
+.adoption-form {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.adoption-form h1 {
+  font-size: 28px;
+  text-align: center;
+  color: #2e7d32;
+}
+
+.adoption-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.adoption-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+
+.adoption-form input,
+.adoption-form select,
+.adoption-form textarea {
+  padding: 8px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.adoption-form fieldset {
+  border: none;
+  display: flex;
+  gap: 20px;
+}
+
+.adoption-form button {
+  padding: 10px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}

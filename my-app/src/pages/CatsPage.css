@@ -1,0 +1,61 @@
+.cats-page {
+  padding: 2rem;
+  text-align: center;
+}
+
+.cats-page h1 {
+  font-size: 32px;
+  color: #2e7d32;
+}
+
+.filters {
+  margin: 20px 0;
+}
+
+.filters button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: 1px solid #2e7d32;
+  background: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.cats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cats-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.cats-grid .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2e7d32;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.show-more {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
