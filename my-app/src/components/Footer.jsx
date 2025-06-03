@@ -27,7 +27,7 @@ function Footer() {
           </form>
           <p>Мы не рассылаем спам и храним ваши данные конфиденциально.</p>
         </div>
-        <div>
+        <div className="border-t border-primaryLight mt-12 pt-6 text-center opacity-70 text-sm">
           <p>© 2023 Зеленый Приют для Кошек. Все права защищены.</p>
           <p>ИНН: 1234567890 | ОГРН: 1234567890123</p>
         </div>
