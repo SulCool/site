@@ -3,18 +3,31 @@ import './Header.css';
 
 function Header() {
   return (
-    <header className="header">
+    <header className="header sticky top-0 z-50">
       <div className="container">
         <div className="logo">
-          <h1>Зеленый Приют</h1>
+          <Link to="/" className="logo-link">
+            <h1 className="logo-text">Зеленый Приют</h1>
+          </Link>
         </div>
-        <nav>
-          <ul>
-            <li><Link to="/">Главная</Link></li>
-            <li><Link to="/about">О нас</Link></li>
-            <li><Link to="/cats">Наши котики</Link></li>
-            <li><Link to="/help">Как помочь</Link></li>
-            <li><Link to="/contacts">Контакты</Link></li>
+        
+        <nav className="nav">
+          <ul className="nav-list">
+            <li className="nav-item">
+              <Link to="/" className="nav-link">Главная</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/about" className="nav-link">О нас</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/cats" className="nav-link">Наши котики</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/help" className="nav-link">Как помочь</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/contacts" className="nav-link">Контакты</Link>
+            </li>
           </ul>
         </nav>
       </div>
