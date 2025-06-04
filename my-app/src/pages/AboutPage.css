@@ -2,7 +2,7 @@
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #e6f4ea; 
+  /* background-color: #e6f4ea;  */
 }
 
 .about-page h1 {
@@ -16,6 +16,7 @@
   display: flex;
   gap: 2rem;
   margin-bottom: 2rem;
+  padding-top: 30px;
 }
 
 .history-image img {

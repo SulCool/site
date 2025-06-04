@@ -4,10 +4,10 @@ import './CatsPage.css';
 const cats = [
   {
     id: 1,
-    name: 'Барсик',
+    name: 'Борсик',
     age: '2 месяца',
     type: 'kitten',
-    description: 'Очень активный и любознательный котенок, обожает играть и лазить по деревьям. Идеален для семьи с детьми.',
+    description: 'Очень активный и любознательный котелок, обожает играть и лазить по деревьям. Идеален для семьи с детьми.',
     traits: ['Любопытный', 'Игривый', 'Дружелюбный'],
     image: 'https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80'
   },
@@ -16,7 +16,7 @@ const cats = [
     name: 'Муся',
     age: '3 года',
     type: 'adult',
-    description: 'Спокойная и ласковая кошка, мечтающая о тихом доме. Отлично ладит с котами и людьми, любит подолгу спать.',
+    description: 'Спокойная и ласковая кошка, мечтающая о тихом доме. Отлично ладит с другими котами и людьми, любит подолгу спать.',
     traits: ['Спокойная', 'Ласковая', 'Домашняя'],
     image: 'https://images.unsplash.com/photo-1577023311546-cdc07a8454d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80'
   },
@@ -39,85 +39,104 @@ function CatsPage() {
     return cat.type === filter;
   });
 
-  const getTypeLabel = (type) => {
-    switch(type) {
-      case 'kitten': return 'Котенок';
-      case 'adult': return 'Взрослая';
-      case 'special': return 'Особенный';
-      default: return '';
-    }
-  };
-
   return (
-    <div className="py-16 bg-secondary">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-primary text-center mb-6">Наши котики ждут дома</h2>
-        <p className="text-xl text-center text-gray-600 mb-12">Каждое из этих животных прошло медицинский осмотр и готово стать вашим компаньоном!</p>
-        
-        <div className="mb-8 flex justify-center">
+    <div className="cats-page">
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="hero-content">
+          <h1>Наши котики ждут дома</h1>
+          <p>Каждое из этих животных прошло медицинский осмотр и готово стать вашим компаньоном!</p>
+        </div>
+      </section>
+
+      {/* Filter Section */}
+      <section className="filter-section">
+        <div className="container">
           <div className="flex space-x-2 border-b border-gray-300">
-            <button 
-              className={`filter-btn px-4 py-2 text-lg font-semibold border-b-2 ${filter === 'all' ? 'border-primary text-primary' : 'border-transparent'}`}
+            <button
+              className={`filter-btn px-4 py-2 text-lg font-semibold border-transparent hover:text-primary border-b-2 border-primary text-primary ${filter === 'all' ? 'active' : ''}`}
+              data-filter="all"
               onClick={() => setFilter('all')}
             >
               Все
             </button>
-            <button 
-              className={`filter-btn px-4 py-2 text-lg font-semibold border-b-2 ${filter === 'kitten' ? 'border-primary text-primary' : 'border-transparent'}`}
+            <button
+              className={`filter-btn px-4 py-2 text-lg font-semibold border-transparent hover:text-primary ${filter === 'kitten' ? 'active' : ''}`}
+              data-filter="kitten"
               onClick={() => setFilter('kitten')}
             >
               Котята
             </button>
-            <button 
-              className={`filter-btn px-4 py-2 text-lg font-semibold border-b-2 ${filter === 'adult' ? 'border-primary text-primary' : 'border-transparent'}`}
+            <button
+              className={`filter-btn px-4 py-2 text-lg font-semibold border-transparent hover:text-primary ${filter === 'adult' ? 'active' : ''}`}
+              data-filter="adult"
               onClick={() => setFilter('adult')}
             >
               Взрослые
             </button>
-            <button 
-              className={`filter-btn px-4 py-2 text-lg font-semibold border-b-2 ${filter === 'special' ? 'border-primary text-primary' : 'border-transparent'}`}
+            <button
+              className={`filter-btn px-4 py-2 text-lg font-semibold border-transparent hover:text-primary ${filter === 'special' ? 'active' : ''}`}
+              data-filter="special"
               onClick={() => setFilter('special')}
             >
               Особенные
             </button>
           </div>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredCats.map(cat => (
-            <div key={cat.id} className="cat-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:transform hover:-translate-y-2">
-              <img src={cat.image} alt={cat.name} className="w-full h-64 object-cover" />
-              <div className="p-6">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-800">{cat.name}</h3>
-                    <div className="flex items-center mt-2">
-                      <span className={`${cat.type === 'special' ? 'bg-accent' : 'bg-primaryLight'} text-white px-3 py-1 rounded-full text-sm`}>
-                        {getTypeLabel(cat.type)}
-                      </span>
-                      <span className="ml-3 text-gray-600">{cat.age}</span>
-                    </div>
-                  </div>
-                  <div className="text-primary">
-                    <i className="fas fa-heart text-2xl"></i>
-                  </div>
+      </section>
+
+      {/* Cats Grid Section */}
+      <section className="cats-grid-section">
+        <div className="container">
+          <div className="cats-grid">
+            {filteredCats.map(cat => (
+              <div key={cat.id} className="cat-card">
+                <div className="cat-image-container">
+                  <img src={cat.image} alt={cat.name} className="cat-image" />
                 </div>
-                <p className="text-gray-600 my-4">{cat.description}</p>
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {cat.traits.map((trait, index) => (
-                    <span key={index} className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
-                      {trait}
-                    </span>
-                  ))}
+                <div className="cat-info">
+                  <div className="cat-header">
+                    <h3>{cat.name}</h3>
+                    <span className="cat-age">{cat.age}</span>
+                  </div>
+                  <p className="cat-description">{cat.description}</p>
+                  <div className="cat-traits">
+                    {cat.traits.map((trait, index) => (
+                      <span key={index} className="trait-badge">{trait}</span>
+                    ))}
+                  </div>
+                  <button className="adopt-btn">Забрать домой</button>
                 </div>
-                <button className="mt-6 w-full bg-primary hover:bg-primaryDark text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300">
-                  Забрать домой
-                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="stats-section">
+        <div className="container">
+          <div className="text-center">
+            <h3 className="stats-heading">Уже нашли друга?</h3>
+            <p className="stats-subheading">Мы рады каждому успешному усыновлению! Вот статистика за последний год:</p>
+            <div className="stats-grid">
+              <div>
+                <div className="stat-number">154</div>
+                <div className="stat-label">Котиков обрели дом</div>
+              </div>
+              <div>
+                <div className="stat-number">98%</div>
+                <div className="stat-label">Успешных адаптаций</div>
+              </div>
+              <div>
+                <div className="stat-number">32</div>
+                <div className="stat-label">Волонтера помогают</div>
               </div>
             </div>
-          ))}
+          </div>
+
         </div>
-      </div>
+      </section>
     </div>
   );
 }
