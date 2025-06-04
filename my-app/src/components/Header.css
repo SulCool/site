@@ -92,3 +92,22 @@
     padding: 1rem;
   }
 }
+
+.desktop-nav.mobile-open {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.desktop-nav.mobile-open ul {
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.desktop-nav.mobile-open ul li {
+  margin: 0.5rem 0;
+}

@@ -1,38 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './CatsPage.css';
 
-const cats = [
-  {
-    id: 1,
-    name: 'Борсик',
-    age: '2 месяца',
-    type: 'kitten',
-    description: 'Очень активный и любознательный котелок, обожает играть и лазить по деревьям. Идеален для семьи с детьми.',
-    traits: ['Любопытный', 'Игривый', 'Дружелюбный'],
-    image: 'https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80'
-  },
-  {
-    id: 2,
-    name: 'Муся',
-    age: '3 года',
-    type: 'adult',
-    description: 'Спокойная и ласковая кошка, мечтающая о тихом доме. Отлично ладит с другими котами и людьми, любит подолгу спать.',
-    traits: ['Спокойная', 'Ласковая', 'Домашняя'],
-    image: 'https://images.unsplash.com/photo-1577023311546-cdc07a8454d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80'
-  },
-  {
-    id: 3,
-    name: 'Симба',
-    age: '5 лет',
-    type: 'special',
-    description: 'Слепой кот с золотым характером. Несмотря на особенности, Симба активен, любит играть и общаться.',
-    traits: ['Милый', 'Контактный', 'Любопытный'],
-    image: 'https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80'
-  }
-];
-
 function CatsPage() {
+  const [cats, setCats] = useState([]);
   const [filter, setFilter] = useState('all');
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/cats')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Fetched data:', data);
+        setCats(data);
+      })
+      .catch(error => {
+        console.error('Error fetching cats:', error); 
+        setError(error.message);
+      });
+  }, []);
 
   const filteredCats = cats.filter(cat => {
     if (filter === 'all') return true;
@@ -42,33 +32,30 @@ function CatsPage() {
   return (
     <main className="cats-page">
       <h1>Наши котики ждут дома</h1>
+      {error && <p style={{ color: 'red' }}>Ошибка: {error}</p>}
       <section className="filter-section">
         <div className="container">
           <div className="flex space-x-2 border-b border-gray-300">
             <button
-              className={`filter-btn px-4 py-2 text-lg font-semibold border-transparent hover:text-primary border-b-2 border-primary text-primary ${filter === 'all' ? 'active' : ''}`}
-              data-filter="all"
+              className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
               onClick={() => setFilter('all')}
             >
               Все
             </button>
             <button
-              className={`filter-btn px-4 py-2 text-lg font-semibold border-transparent hover:text-primary ${filter === 'kitten' ? 'active' : ''}`}
-              data-filter="kitten"
+              className={`filter-btn ${filter === 'kitten' ? 'active' : ''}`}
               onClick={() => setFilter('kitten')}
             >
               Котята
             </button>
             <button
-              className={`filter-btn px-4 py-2 text-lg font-semibold border-transparent hover:text-primary ${filter === 'adult' ? 'active' : ''}`}
-              data-filter="adult"
+              className={`filter-btn ${filter === 'adult' ? 'active' : ''}`}
               onClick={() => setFilter('adult')}
             >
               Взрослые
             </button>
             <button
-              className={`filter-btn px-4 py-2 text-lg font-semibold border-transparent hover:text-primary ${filter === 'special' ? 'active' : ''}`}
-              data-filter="special"
+              className={`filter-btn ${filter === 'special' ? 'active' : ''}`}
               onClick={() => setFilter('special')}
             >
               Особенные
@@ -79,6 +66,7 @@ function CatsPage() {
       <section className="cats-grid-section">
         <div className="container">
           <div className="cats-grid">
+            {filteredCats.length === 0 && !error && <p>Загрузка котиков...</p>}
             {filteredCats.map(cat => (
               <div key={cat.id} className="cat-card">
                 <div className="cat-image-container">
@@ -95,7 +83,12 @@ function CatsPage() {
                       <span key={index} className="trait-badge">{trait}</span>
                     ))}
                   </div>
-                  <button className="adopt-btn">Забрать домой</button>
+                  <button
+                    className="adopt-btn"
+                    onClick={() => window.location.href = '/adoption'}
+                  >
+                    Забрать домой
+                  </button>
                 </div>
               </div>
             ))}
@@ -106,7 +99,9 @@ function CatsPage() {
         <div className="container">
           <div className="text-center">
             <h3 className="stats-heading">Уже нашли друга?</h3>
-            <p className="stats-subheading">Мы рады каждому успешному усыновлению! Вот статистика за последний год:</p>
+            <p className="stats-subheading">
+              Мы рады каждому успешному усыновлению! Вот статистика за последний год:
+            </p>
             <div className="stats-grid">
               <div>
                 <div className="stat-number">154</div>
