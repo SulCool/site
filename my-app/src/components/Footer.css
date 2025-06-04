@@ -62,7 +62,7 @@
 
 .footer-input {
   padding: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--primary-exlight);
   border-radius: 0.25rem;
   flex-grow: 1;
   background-color: rgba(255, 255, 255, 0.1);
@@ -70,12 +70,12 @@
 }
 
 .footer-input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--primary-exlight);
 }
 
 .footer-button {
   padding: 0.5rem 1rem;
-  background-color: #81c784; 
+  background-color: var(--primary-light); 
   color: white;
   border: none;
   border-radius: 0.25rem;
@@ -84,7 +84,7 @@
 }
 
 .footer-button:hover {
-  background-color: #b4d6c2; 
+  background-color: var(--primary-exlight); 
 }
 
 .footer-disclaimer {

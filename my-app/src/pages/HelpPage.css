@@ -1,7 +1,12 @@
+body {
+  background-color: #fff !important;
+}
+
 .help-page {
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  color: #333;
 }
 
 .help-page h1 {
@@ -10,62 +15,178 @@
   text-align: center;
 }
 
-.help-page h2 {
-  font-size: 28px;
-  margin: 2rem 0 1rem;
-}
-
 .help-page p {
   font-size: 16px;
   color: #6b7280;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.help-page ul {
-  list-style: disc;
+.help-columns {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.help-card {
+  background-color: #f0fff4;
+  padding: 20px;
+  border-radius: 10px;
+  width: 40%;
+  text-align: center;
+}
+
+.help-card .icon {
+  font-size: 40px;
+  color: #2e7d32; 
+  margin-bottom: 10px;
+}
+
+.help-card h2 {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #333; 
+}
+
+.help-card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #333; 
+}
+
+.help-card p {
+  margin-bottom: 20px;
+  color: #6b7280; 
+}
+
+.help-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.help-list li {
+  font-size: 16px;
+  color: #333;
+  position: relative;
   padding-left: 20px;
+  margin-bottom: 10px;
 }
 
-.help-page .btn {
+.help-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #2e7d32;
+}
+
+.btn {
   display: inline-block;
   padding: 10px 20px;
   background-color: #2e7d32;
-  color: white;
+  color: #fff;
   text-decoration: none;
   border-radius: 8px;
-  margin-top: 10px;
-}
-
-.help-page form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
-  margin: 20px 0;
-}
-
-.help-page input {
-  padding: 8px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
-}
-
-.help-page button {
-  padding: 10px;
-  background-color: #2e7d32;
-  color: white;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
 }
 
-.partners {
+.volunteer-form {
+  background: linear-gradient(90deg, #2e7d32, #48bb78); 
+  padding: 30px;
+  border-radius: 10px;
+  color: #fff;
+  margin-bottom: 40px;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
   gap: 20px;
-  justify-content: center;
 }
 
-.partners p {
+.volunteer-content {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-icon {
+  font-size: 50px; 
+  margin-bottom: 10px;
+}
+
+.volunteer-form h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center; 
+}
+
+.volunteer-form p {
   font-size: 16px;
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: center; 
+}
+
+.volunteer-form form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-fields label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.volunteer-form input,
+.volunteer-form textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.8); 
+  color: #333;
+  width: 100%;
+}
+
+.volunteer-form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.partners {
+  text-align: center;
+}
+
+.partners h2 {
+  font-size: 24px;
   color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.partner-list {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.partner-list span {
+  background-color: #ebebeb;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: #2e7d32;
+  font-size: 16px;
 }
