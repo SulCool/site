@@ -1,4 +1,3 @@
-
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const cors = require('cors');
@@ -17,7 +16,6 @@ const db = new sqlite3.Database('./src/server/shelter.db', (err) => {
   }
   console.log('Connected to SQLite database');
 });
-
 
 db.serialize(() => {
     db.run(`
@@ -76,7 +74,6 @@ db.serialize(() => {
     )
   `);
 });
-
 
 const initialCats = [
   {
@@ -166,6 +163,7 @@ db.serialize(() => {
   });
   stmt.finalize();
 });
+
 
 app.get('/api/cats', (req, res) => {
   db.all('SELECT * FROM cats', [], (err, rows) => {
