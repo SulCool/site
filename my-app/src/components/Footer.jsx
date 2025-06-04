@@ -1,15 +1,32 @@
 import './Footer.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faFacebookF,
+  faInstagram,
+  faCat // Добавляем иконку кота
+} from '@fortawesome/free-solid-svg-icons';
 
 function Footer() {
   return (
     <footer className="footer bg-primaryDark text-white">
       <div className="container">
-        <div className="footer-section">
-          <h3 className="footer-title">Зеленый Приют</h3>
+        <div className="footer-section1">
+          <h3 className="footer-title">
+            <FontAwesomeIcon icon={faCat} className="logo-icon-footer" />
+            Зеленый Приют
+          </h3>
           <p className="footer-text">
             Мы спасаем бездомных кошек и помогаем им найти любящих хозяев. 
             Присоединяйтесь к нашей миссии!
           </p>
+          <div className="footer-social">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+
+            </a>
+          </div>
         </div>
         
         <div className="footer-section">
@@ -42,11 +59,10 @@ function Footer() {
             Мы не рассылаем спам и храним ваши данные конфиденциально.
           </p>
         </div>
-        
-        <div className="footer-copyright">
-          <p>© {new Date().getFullYear()} Зеленый Приют для Кошек. Все права защищены.</p>
-          <p>ИНН: 1234567890 | ОГРН: 1234567890123</p>
-        </div>
+      </div>
+      <div className="footer-copyright">
+        <p>© {new Date().getFullYear()} Зеленый Приют для Кошек. Все права защищены.</p>
+        <p>ИНН: 1234567890 | ОГРН: 1234567890123</p>
       </div>
     </footer>
   );
