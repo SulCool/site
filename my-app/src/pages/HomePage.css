@@ -111,3 +111,115 @@
   color: #4a5568;
   line-height: 1.6;
 }
+
+/* Success Stories Section */
+.success-stories {
+  background-color: white;
+  padding: 4rem 1rem;
+}
+
+.success-stories .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.success-stories h2 {
+  font-family: 'Comfortaa', cursive;
+  text-align: center;
+  font-size: 2rem; 
+  color: #25855a;
+  margin-bottom: 2rem; 
+}
+
+.stories-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem; 
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.story-card {
+  display: flex;
+  background-color: #e6f4ea; 
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  min-width: 280px; 
+  max-width: 1320px; 
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.story-content {
+  padding: 1rem; 
+  flex: 1;
+}
+
+.story-card h3 {
+  font-family: 'Comfortaa', cursive;
+  color: #2d3748;
+  margin-bottom: 0.3rem; 
+  font-size: 1.1rem; 
+}
+
+.story-card blockquote {
+  font-family: 'Nunito', sans-serif;
+  color: #4a5568;
+  line-height: 1.4; 
+  font-style: italic;
+  margin-bottom: 0.5rem; 
+  font-size: 0.9rem; 
+}
+
+.story-card blockquote::before {
+  content: none; 
+}
+
+.author {
+  font-family: 'Nunito', sans-serif;
+  color: #38a169;
+  font-weight: 600;
+  font-size: 0.85rem; 
+
+.story-image {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  margin: 1rem; 
+}
+
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .story-card {
+    flex-direction: column;
+    min-width: 250px;
+  }
+  
+  .story-image {
+    width: 80px;
+    height: 80px;
+    margin: 1rem auto;
+  }
+  
+  .story-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  
+  .success-stories {
+    padding: 2rem 1rem;
+  }
+}
+}
