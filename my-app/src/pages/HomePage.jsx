@@ -9,7 +9,7 @@ import {
 function HomePage() {
   return (
     <main>
-      {/* Hero Section */}
+
       <section className="hero">
         <div className="hero-content">
           <h1>Подари дом котику в беде!</h1>
@@ -21,7 +21,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Mission Section */}
+
       <section className="mission">
         <h2>Наша миссия</h2>
         <div className="mission-cards">
@@ -43,7 +43,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Success Stories Section */}
+
       <section className="success-stories">
                   <h2>Истории успеха</h2>
         <div className="container">
