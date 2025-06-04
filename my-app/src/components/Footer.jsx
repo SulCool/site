@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faFacebookF,
   faInstagram,
-  faCat // Добавляем иконку кота
+  faCat 
 } from '@fortawesome/free-solid-svg-icons';
 
 function Footer() {
