@@ -40,16 +40,8 @@ function CatsPage() {
   });
 
   return (
-    <div className="cats-page">
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <h1>Наши котики ждут дома</h1>
-          <p>Каждое из этих животных прошло медицинский осмотр и готово стать вашим компаньоном!</p>
-        </div>
-      </section>
-
-      {/* Filter Section */}
+    <main className="cats-page">
+      <h1>Наши котики ждут дома</h1>
       <section className="filter-section">
         <div className="container">
           <div className="flex space-x-2 border-b border-gray-300">
@@ -84,8 +76,6 @@ function CatsPage() {
           </div>
         </div>
       </section>
-
-      {/* Cats Grid Section */}
       <section className="cats-grid-section">
         <div className="container">
           <div className="cats-grid">
@@ -112,8 +102,6 @@ function CatsPage() {
           </div>
         </div>
       </section>
-
-      {/* Stats Section */}
       <section className="stats-section">
         <div className="container">
           <div className="text-center">
@@ -134,10 +122,9 @@ function CatsPage() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
-    </div>
+    </main>
   );
 }
 
